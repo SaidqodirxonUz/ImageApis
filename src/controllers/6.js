@@ -49,7 +49,7 @@ const api6 = async (req, res) => {
       console.log("iffffffda");
     }
     if (text.length === 6 || text.length === 7 || text.length === 8) {
-      ctx.fillText(text, olchamX, olchamY);
+      ctx.fillText(text, olchamX - 30, olchamY);
       console.log("2 iffda");
     }
 

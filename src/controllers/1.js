@@ -47,7 +47,7 @@ const api1 = async (req, res) => {
       console.log("iffffffda");
     }
     if (text.length === 6 || text.length === 7 || text.length === 8) {
-      ctx.fillText(text, olchamX, 400);
+      ctx.fillText(text, olchamX - 40, 400);
       console.log("2 iffda");
     }
 

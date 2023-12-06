@@ -36,7 +36,7 @@ const ozgaramiz = async (req, res) => {
     const olchamY = 700;
 
     if (text.length >= 12) {
-      ctx.fillText(text, olchamX - 300, olchamY);
+      ctx.fillText(text, olchamX - 350, olchamY);
       console.log("0iffda");
     }
     if (text.length === 10 || text.length === 11) {
