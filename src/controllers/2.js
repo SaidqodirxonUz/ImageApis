@@ -80,45 +80,9 @@ const api2 = async (req, res) => {
       }
     );
 
-    res.setHeader("Content-Type", "text/html");
-    res.send(`
-    <title>New Year Api 2</title>
-    <center>    
-    <img src="${mainUrl}/2/goto.png" alt="Image with Text" />
-    <br/>
-    <br/>
-    <p>Sizning rasmingiz</p>
-    <p>Apidan foydalanish uchun 
-    <br/> 
-    <code>${mainUrl}/api/2</code>   <br/> 
-    ga GET sorivini jonatib 
-    <br/> 
-    <code>${mainUrl}/2/goto.png </code>
-    <br/> 
-    orqali sorov jonatilganidan keyin 
-    <br/> 
-    yasalgan rasmni loyihangizda ham foydalanishingiz mumkin.</p>
-    <button id="downloadButton" type="button">Yuklab Olish</button>
-    
-    </center>
-    <script>
-      // Add an event listener to the download button
-      document.getElementById('downloadButton').addEventListener('click', function() {
-        // Create a virtual link element
-        var link = document.createElement('a');
-        // Set the href attribute to the image URL
-        link.href = '${mainUrl}/2/goto.png';
-        // Set the download attribute to specify the filename
-        link.download = 'goto.png';
-        // Append the link to the document
-        document.body.appendChild(link);
-        // Trigger a click on the link to start the download
-        link.click();
-        // Remove the link from the document
-        document.body.removeChild(link);
-      });
-    </script>
-  `);
+    const resultImage = path.join(__dirname, "../../public/2/goto.png");
+
+    res.sendFile(resultImage);
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

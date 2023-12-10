@@ -80,37 +80,9 @@ const ozgaramiz = async (req, res) => {
         console.log("File has been written");
       }
     );
+    const resultImage = path.join(__dirname, "../../public/20/goto.png");
 
-    res.setHeader("Content-Type", "text/html");
-    res.send(`
-    <title>O'zgaramiz</title>
-    <center>    
-    <img src="${mainUrl}/${apiCode}/goto.png" alt="Image with Text" />
-    <br/>
-    <br/>
-    <p>Sizning rasmingiz</p>
-
-    <button id="downloadButton" type="button">Yuklab Olish</button>
-    
-    </center>
-    <script>
-      // Add an event listener to the download button
-      document.getElementById('downloadButton').addEventListener('click', function() {
-        // Create a virtual link element
-        var link = document.createElement('a');
-        // Set the href attribute to the image URL
-        link.href = '${mainUrl}/${apiCode}/goto.png';
-        // Set the download attribute to specify the filename
-        link.download = 'goto.png';
-        // Append the link to the document
-        document.body.appendChild(link);
-        // Trigger a click on the link to start the download
-        link.click();
-        // Remove the link from the document
-        document.body.removeChild(link);
-      });
-    </script>
-  `);
+    res.sendFile(resultImage);
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
